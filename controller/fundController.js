@@ -1,53 +1,65 @@
 const fundModel = require("../models/fundModel");
 
-const createFund = (req, res) => {
-  const { id, name, amc_name, current_nav } = req.body;
+const createFund = async (req, res) => {
 
-  const data = {
-    id,
-    name,
-    amc_name,
-    current_nav,
-  };
+  try {
 
-  fundModel.createFund(data, (err, result) => {
-    if (err) {
-      return res.status(500).json({
-        error: err.message,
-      });
-    }
+    const { id, name, amc_name, current_nav } = req.body;
+
+    const data = {
+      id,
+      name,
+      amc_name,
+      current_nav,
+    };
+
+    const result = await fundModel.createFund(data);
 
     return res.status(201).json({
       message: "Fund Created Successfully",
+      data: result
     });
-  });
+
+  } catch (err) {
+
+    return res.status(500).json({
+      error: err.message,
+    });
+
+  }
 };
 
-const getAllFunds = (req, res) => {
-  fundModel.getAllFunds((err, rows) => {
-    if (err) {
-      return res.status(500).json({
-        error: err.message,
-      });
-    }
+const getAllFunds = async (req, res) => {
+
+  try {
+
+    const rows = await fundModel.getAllFunds();
 
     return res.status(200).json(rows);
-  });
+
+  } catch (err) {
+
+    return res.status(500).json({
+      error: err.message,
+    });
+
+  }
 };
 
-const updateNAV = (req, res) => {
-  const fundId = req.params.fundId;
+const updateNAV = async (req, res) => {
 
-  const { current_nav } = req.body;
+  try {
 
-  fundModel.updateNAV(fundId, current_nav, (err, result) => {
-    if (err) {
-      return res.status(500).json({
-        error: err.message,
-      });
-    }
+    const fundId = req.params.fundId;
 
-    if (result.changes === 0) {
+    const { current_nav } = req.body;
+
+    const result = await fundModel.updateNAV(
+      fundId,
+      current_nav
+    );
+
+    if (!result) {
       return res.status(404).json({
         message: "Fund Not Found",
       });
@@ -55,8 +67,16 @@ const updateNAV = (req, res) => {
 
     return res.status(200).json({
       message: "NAV Updated Successfully",
+      data: result
     });
-  });
+
+  } catch (err) {
+
+    return res.status(500).json({
+      error: err.message,
+    });
+
+  }
 };
 
 module.exports = {
