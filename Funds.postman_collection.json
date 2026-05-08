@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "107acaf4-301b-4521-8fdb-3aaeef046775",
+    "name": "Funds",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53025943"
+  },
+  "item": [
+    {
+      "name": "Add Fund",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 199,\r\n    \"name\": \"Axis Bluechip Fund\",\r\n    \"amc_name\": \"Axis AMC\",\r\n    \"current_nav\": 85.60\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/fund/createFund",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "fund",
+            "createFund"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "Fund Created Successfully"
+        }
+      ]
+    },
+    {
+      "name": "Get All Funds",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/fund/getFunds",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "fund",
+            "getFunds"
+          ]
+        }
+      },
+      "response": [
+        [
+          {
+            "id": 1,
+            "name": "SBI Bluechip Fund",
+            "amc_name": "SBI AMC",
+            "current_nav": 85
+          },
+          {
+            "id": 2,
+            "name": "HDFC Midcap Opportunities",
+            "amc_name": "HDFC AMC",
+            "current_nav": 120.75
+          },
+          {
+            "id": 3,
+            "name": "ICICI Prudential Technology Fund",
+            "amc_name": "ICICI AMC",
+            "current_nav": 210.3
+          },
+          {
+            "id": 199,
+            "name": "Axis Bluechip Fund",
+            "amc_name": "Axis AMC",
+            "current_nav": 85.6
+          }
+        ]
+      ]
+    },
+    {
+      "name": "Update Nav",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"current_nav\": 87\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/fund/1/nav",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "fund",
+            "1",
+            "nav"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "NAV Updated Successfully"
+        }
+      ]
+    }
+  ]
+}

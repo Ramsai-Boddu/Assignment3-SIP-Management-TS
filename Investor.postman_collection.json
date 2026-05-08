@@ -1,0 +1,235 @@
+{
+  "info": {
+    "_postman_id": "d0b2bad7-9b4f-4129-9778-75d911f78f26",
+    "name": "Investor",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53025943"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"rahul@gmail.com\",\r\n    \"password\":\"rahul123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/invest/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "invest",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "Login Success",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NTY2NCwiZXhwIjoxNzc4MTU3NDY0fQ.yvx7Be2pvSgjVv4H1Eq9L8gm-28HWPqzlOQlza1-QS4"
+        }
+      ]
+    },
+    {
+      "name": "Get Investor",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/invest/INV001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "invest",
+            "INV001"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "Investor Found",
+          "Data": {
+            "investor_id": "INV001",
+            "first_name": "Rahul",
+            "last_name": "Sharma",
+            "middle_name": "Kumar",
+            "pan": "ABCDE1234F",
+            "aadhar": "1234567890",
+            "data_of_birth": "1995-05-12",
+            "gender": "Male",
+            "occupation": "Engineer"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Holdings",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0ODI3NCwiZXhwIjoxNzc4MTUwMDc0fQ.5cMQWPb2hY19aw2S8JqBiemIrZq3LDKVbSDf1mU_S1A",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/invest/INV001/holdings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "invest",
+            "INV001",
+            "holdings"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "Holdings Found",
+          "holdings": [
+            {
+              "first_name": "Rahul",
+              "investor_id": "INV001",
+              "portfolio_id": 101,
+              "id": 1,
+              "amount": 5000,
+              "purchase_date": "2025-01-05",
+              "unit_value": 85.45,
+              "mutual_id": 1,
+              "status": "ACTIVE"
+            },
+            {
+              "first_name": "Rahul",
+              "investor_id": "INV001",
+              "portfolio_id": 101,
+              "id": 10,
+              "amount": 5000,
+              "purchase_date": "2026-05-07",
+              "unit_value": 0,
+              "mutual_id": 1,
+              "status": "ACTIVE"
+            },
+            {
+              "first_name": "Rahul",
+              "investor_id": "INV001",
+              "portfolio_id": 101,
+              "id": 15,
+              "amount": 5000,
+              "purchase_date": "2026-05-07",
+              "unit_value": 0,
+              "mutual_id": 1,
+              "status": "ACTIVE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Get Net Worth",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0NjkyMCwiZXhwIjoxNzc4MTQ4NzIwfQ.YaJdDVi7d1MwzNWomZJDiKyBFbX3Pc8uWd4hoWA2ea8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/invest/INV001/networth",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "invest",
+            "INV001",
+            "networth"
+          ]
+        }
+      },
+      "response": [
+        {
+          "message": "Net Worth Calculated",
+          "NetWorth": {
+            "investor_id": "INV001",
+            "first_name": "Rahul",
+            "net_worth": 25474.32565260042
+          }
+        }
+      ]
+    },
+    {
+      "name": "Add Investor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0NjkyMCwiZXhwIjoxNzc4MTQ4NzIwfQ.YaJdDVi7d1MwzNWomZJDiKyBFbX3Pc8uWd4hoWA2ea8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"investor_id\": \"INV003\",\r\n  \"first_name\": \"Kiran\",\r\n  \"last_name\": \"Rao\",\r\n  \"middle_name\": \"Kumar\",\r\n  \"pan\": \"ABCDE6789X\",\r\n  \"aadhar\": \"1234512345\",\r\n  \"data_of_birth\": \"1998-01-10\",\r\n  \"gender\": \"Male\",\r\n  \"occupation\": \"Developer\",\r\n\r\n  \"portfolio_id\": 103,\r\n\r\n  \"email\": \"kiran@gmail.com\",\r\n  \"password\": \"kiran123\",\r\n  \"role\":\"investor\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/invest/addInvestor",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "invest",
+            "addInvestor"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "logout",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "info": {
+    "_postman_id": "eb800120-6ac7-4c13-b160-9ebefa52c67e",
+    "name": "Sip Operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53025943"
+  },
+  "item": [
+    {
+      "name": "Create Sip",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0NjkyMCwiZXhwIjoxNzc4MTQ4NzIwfQ.YaJdDVi7d1MwzNWomZJDiKyBFbX3Pc8uWd4hoWA2ea8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 15,\r\n    \"amount\": 5000,\r\n    \"purchase_date\": \"2026-05-07\",\r\n    \"unit_value\": 0,\r\n    \"portfolio_id\": 101,\r\n    \"mutual_id\": 1,\r\n    \"status\": \"ACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/createSip",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "createSip"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sip By Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Process Sip",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0NjkyMCwiZXhwIjoxNzc4MTQ4NzIwfQ.YaJdDVi7d1MwzNWomZJDiKyBFbX3Pc8uWd4hoWA2ea8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/sip/15/process",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "15",
+            "process"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sip Transactions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhaHVsQGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE0NjkyMCwiZXhwIjoxNzc4MTQ4NzIwfQ.YaJdDVi7d1MwzNWomZJDiKyBFbX3Pc8uWd4hoWA2ea8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/sip/10/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "sip",
+            "10",
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
